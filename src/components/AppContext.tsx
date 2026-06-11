@@ -14,9 +14,8 @@ export const AppContextProvider = ({ children }: any) => {
     const [ isLoggedIn, setIsLoggedIn ] = useState<boolean>(false)
     const [user, setUser ] = useState<{name: string, email: string} | null>(null)
 
-    const storage = getAllLocalStorage()
-
     useEffect(() => {
+      const storage = getAllLocalStorage()
       if(storage){
         const { login, name, email } = JSON.parse(storage)
         setIsLoggedIn(login)
